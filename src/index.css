@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@theme {
+  --color-gold-accent: #F3D97A;
+  --color-gold-metallic: #D4AF37;
+  --color-gold-300: #E1C05D;
+}
+
 @layer base {
   :root {
     --color-gold: #F3D97A;

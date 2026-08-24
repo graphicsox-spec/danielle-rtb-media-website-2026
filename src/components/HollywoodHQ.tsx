@@ -128,19 +128,19 @@ export const HollywoodHQ: React.FC<HollywoodHQProps> = ({ onOpenProposal }) => {
                 </div>
 
                 {/* View Switcher Toggle */}
-                <div className="flex items-center gap-1 bg-[#101018] p-1 rounded-xl border border-white/10">
+                <div className="flex items-center gap-1.5 bg-[#0C0C14] p-1.5 rounded-xl border border-white/15">
                   <button
                     onClick={() => {
                       soundFx.playClick();
                       setViewMode('map');
                     }}
-                    className={`px-3 py-1 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
+                    className={`px-3.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
                       viewMode === 'map'
-                        ? 'bg-gold-accent text-black font-bold shadow-sm'
-                        : 'text-zinc-400 hover:text-white'
+                        ? 'bg-[#F3D97A] text-[#07070A] shadow-md'
+                        : 'text-zinc-300 hover:text-white hover:bg-white/10'
                     }`}
                   >
-                    <MapIcon className="w-3.5 h-3.5" />
+                    <MapIcon className={`w-3.5 h-3.5 ${viewMode === 'map' ? 'text-[#07070A]' : 'text-[#F3D97A]'}`} />
                     <span>Live Map</span>
                   </button>
 
@@ -149,13 +149,13 @@ export const HollywoodHQ: React.FC<HollywoodHQProps> = ({ onOpenProposal }) => {
                       soundFx.playClick();
                       setViewMode('photo');
                     }}
-                    className={`px-3 py-1 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
+                    className={`px-3.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
                       viewMode === 'photo'
-                        ? 'bg-gold-accent text-black font-bold shadow-sm'
-                        : 'text-zinc-400 hover:text-white'
+                        ? 'bg-[#F3D97A] text-[#07070A] shadow-md'
+                        : 'text-zinc-300 hover:text-white hover:bg-white/10'
                     }`}
                   >
-                    <ImageIcon className="w-3.5 h-3.5" />
+                    <ImageIcon className={`w-3.5 h-3.5 ${viewMode === 'photo' ? 'text-[#07070A]' : 'text-[#F3D97A]'}`} />
                     <span>Hollywood View</span>
                   </button>
                 </div>
