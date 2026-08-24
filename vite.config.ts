@@ -10,6 +10,11 @@ export default defineConfig({
     react(),
     tailwindcss()
   ],
+  build: {
+    sourcemap: false,
+    minify: 'esbuild',
+    cssMinify: true
+  },
   server: {
     port: 3000,
     open: false
