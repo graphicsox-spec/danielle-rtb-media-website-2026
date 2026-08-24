@@ -168,7 +168,7 @@ export const HollywoodHQ: React.FC<HollywoodHQProps> = ({ onOpenProposal }) => {
                   <iframe
                     title="RTB Media Hollywood Headquarters"
                     src="https://maps.google.com/maps?q=7083+Hollywood+Boulevard,+Los+Angeles,+CA+90028&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                    className="w-full h-full border-0 filter grayscale invert contrast-125 opacity-90 hover:opacity-100 transition-opacity"
+                    className="w-full h-full border-0 rounded-2xl"
                     loading="lazy"
                     allowFullScreen
                   ></iframe>
