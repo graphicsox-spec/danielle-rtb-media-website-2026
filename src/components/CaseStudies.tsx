@@ -27,7 +27,7 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onOpenProposal }) => {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gold-accent/15 border border-gold-accent/30 text-gold-accent text-xs font-mono uppercase tracking-widest mb-4 font-bold">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gold-accent/10 border border-gold-accent/20 text-gold-accent text-xs font-mono uppercase tracking-widest mb-4">
               <TrendingUp className="w-3.5 h-3.5" />
               Verified PR Impact
             </div>
@@ -35,7 +35,7 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onOpenProposal }) => {
               Featured Client Case Studies
             </h2>
           </div>
-          <p className="text-zinc-300 max-w-md text-sm sm:text-base">
+          <p className="text-zinc-400 max-w-md text-sm sm:text-base">
             Explore how we engineered media momentum for groundbreaking startups, ESG pioneers, and cultural icons.
           </p>
         </div>
@@ -47,29 +47,29 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onOpenProposal }) => {
               key={c.id}
               onClick={() => openModal(c)}
               onMouseEnter={() => soundFx.playHover()}
-              className="group glass-card rounded-3xl overflow-hidden border border-white/15 hover:border-gold-accent/50 transition-all duration-500 cursor-pointer flex flex-col justify-between"
+              className="group glass-card rounded-3xl overflow-hidden border border-white/10 hover:border-gold-accent/40 transition-all duration-300 cursor-pointer flex flex-col justify-between"
             >
               {/* Image & Overlay Header */}
               <div className="relative h-64 overflow-hidden">
                 <img
                   src={c.featuredImg}
                   alt={c.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D12] via-[#0D0D12]/40 to-transparent"></div>
                 
                 {/* Badges */}
                 <div className="absolute top-4 left-4 flex gap-2">
-                  <span className="px-3 py-1 rounded-full bg-black/80 backdrop-blur-md text-[11px] font-mono uppercase tracking-wider text-gold-accent border border-gold-accent/40 font-bold">
+                  <span className="px-3 py-1 rounded-full bg-black/70 backdrop-blur-md text-[11px] font-mono uppercase tracking-wider text-gold-accent border border-gold-accent/30 font-semibold">
                     {c.client}
                   </span>
-                  <span className="px-3 py-1 rounded-full bg-emerald-500/20 backdrop-blur-md text-[11px] font-mono text-emerald-300 border border-emerald-500/40 font-bold">
+                  <span className="px-3 py-1 rounded-full bg-emerald-500/20 backdrop-blur-md text-[11px] font-mono text-emerald-300 border border-emerald-500/30 font-medium">
                     {c.impactMetric}
                   </span>
                 </div>
 
                 <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                  <span className="text-xs font-mono text-zinc-200 font-semibold bg-black/60 px-2 py-0.5 rounded">
+                  <span className="text-xs font-mono text-zinc-300 bg-black/60 px-2 py-0.5 rounded">
                     {c.pressOutlets.slice(0, 3).join(' • ')}
                   </span>
                 </div>
@@ -81,7 +81,7 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onOpenProposal }) => {
                   <h3 className="font-serif text-2xl font-normal text-white group-hover:text-gold-accent transition-colors leading-snug mb-3">
                     {c.title}
                   </h3>
-                  <p className="text-zinc-200 text-sm leading-relaxed line-clamp-3">
+                  <p className="text-zinc-300 text-sm leading-relaxed line-clamp-3">
                     {c.summary}
                   </p>
                 </div>
@@ -89,21 +89,21 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onOpenProposal }) => {
                 {/* Results Row */}
                 <div className="grid grid-cols-3 gap-3 pt-6 border-t border-white/10">
                   {c.results.map((r, rIdx) => (
-                    <div key={rIdx} className="text-center p-2 rounded-xl bg-white/5">
+                    <div key={rIdx} className="text-center p-2 rounded-xl bg-white/[0.02]">
                       <div className="font-display font-extrabold text-lg sm:text-xl text-gradient-gold">
                         {r.stat}
                       </div>
-                      <div className="text-[10px] sm:text-xs uppercase tracking-wider text-zinc-300 font-medium mt-0.5 truncate">
+                      <div className="text-[10px] sm:text-xs uppercase tracking-wider text-zinc-400 font-medium mt-0.5 truncate">
                         {r.label}
                       </div>
                     </div>
                   ))}
                 </div>
 
-                {/* View Deep-Dive Link with Clear Gold Border Button */}
-                <div className="btn-gold-outline w-full py-2.5 rounded-xl text-xs uppercase tracking-wider flex items-center justify-center gap-2">
+                {/* Clean Refined Button */}
+                <div className="btn-card-action w-full py-2.5 text-xs uppercase tracking-wider">
                   <span>View Complete Case Study</span>
-                  <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
+                  <ArrowUpRight className="w-3.5 h-3.5 ml-1.5" />
                 </div>
               </div>
             </div>
@@ -114,13 +114,13 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onOpenProposal }) => {
 
       {/* Case Study Detail Modal */}
       {selectedCase && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/90 backdrop-blur-2xl animate-in fade-in duration-300">
-          <div className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto glass-card-gold rounded-3xl p-6 sm:p-10 border border-gold-accent/50 shadow-2xl space-y-8">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-xl animate-in fade-in duration-200">
+          <div className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto glass-card-gold rounded-3xl p-6 sm:p-10 border border-gold-accent/40 shadow-2xl space-y-8">
             
             {/* Close Button */}
             <button
               onClick={closeModal}
-              className="absolute top-6 right-6 p-2 rounded-full bg-white/10 text-zinc-200 hover:text-white hover:bg-white/20 transition-colors cursor-pointer"
+              className="absolute top-6 right-6 p-2 rounded-full bg-white/10 text-zinc-300 hover:text-white hover:bg-white/20 transition-colors cursor-pointer"
             >
               <X className="w-6 h-6" />
             </button>
@@ -128,10 +128,10 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onOpenProposal }) => {
             {/* Header */}
             <div>
               <div className="flex items-center gap-3 mb-3">
-                <span className="text-xs font-mono uppercase tracking-widest px-3 py-1 rounded-full bg-gold-accent/20 text-gold-accent border border-gold-accent/40 font-bold">
+                <span className="text-xs font-mono uppercase tracking-widest px-3 py-1 rounded-full bg-gold-accent/20 text-gold-accent border border-gold-accent/30 font-semibold">
                   {selectedCase.client}
                 </span>
-                <span className="text-xs font-mono uppercase tracking-widest text-zinc-300 font-semibold">
+                <span className="text-xs font-mono uppercase tracking-widest text-zinc-400">
                   Category: {selectedCase.category.toUpperCase()}
                 </span>
               </div>
@@ -141,13 +141,13 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onOpenProposal }) => {
             </div>
 
             {/* Results Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 p-5 rounded-2xl bg-black/60 border border-white/15">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 p-5 rounded-2xl bg-black/40 border border-white/10">
               {selectedCase.results.map((res, i) => (
                 <div key={i} className="text-center p-3">
                   <div className="text-3xl font-display font-extrabold text-gradient-gold mb-1">
                     {res.stat}
                   </div>
-                  <div className="text-xs uppercase font-mono tracking-wider text-zinc-200 font-semibold">
+                  <div className="text-xs uppercase font-mono tracking-wider text-zinc-300">
                     {res.label}
                   </div>
                 </div>
@@ -156,20 +156,20 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onOpenProposal }) => {
 
             {/* Strategy Breakdown */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-3 p-5 rounded-2xl bg-[#12121C] border border-white/10">
+              <div className="space-y-3 p-5 rounded-2xl bg-[#101018] border border-white/5">
                 <h4 className="font-display font-bold text-sm uppercase tracking-wider text-amber-300">
                   The Market Challenge
                 </h4>
-                <p className="text-sm text-zinc-200 leading-relaxed">
+                <p className="text-sm text-zinc-300 leading-relaxed">
                   {selectedCase.challenge}
                 </p>
               </div>
 
-              <div className="space-y-3 p-5 rounded-2xl bg-[#12121C] border border-white/10">
+              <div className="space-y-3 p-5 rounded-2xl bg-[#101018] border border-white/5">
                 <h4 className="font-display font-bold text-sm uppercase tracking-wider text-gold-accent">
                   The RTB PR Solution
                 </h4>
-                <p className="text-sm text-zinc-200 leading-relaxed">
+                <p className="text-sm text-zinc-300 leading-relaxed">
                   {selectedCase.solution}
                 </p>
               </div>
@@ -177,7 +177,7 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onOpenProposal }) => {
 
             {/* Verified Press Placements */}
             <div>
-              <h4 className="font-display font-bold text-xs uppercase tracking-widest text-zinc-300 mb-3 flex items-center gap-2">
+              <h4 className="font-display font-bold text-xs uppercase tracking-widest text-zinc-400 mb-3 flex items-center gap-2">
                 <Newspaper className="w-4 h-4 text-gold-accent" />
                 Key Tier-1 Press Outlets Landed
               </h4>
@@ -185,7 +185,7 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onOpenProposal }) => {
                 {selectedCase.pressOutlets.map((outlet, oIdx) => (
                   <span
                     key={oIdx}
-                    className="px-3.5 py-1.5 rounded-lg bg-gold-accent/15 border border-gold-accent/30 text-xs font-bold text-white"
+                    className="px-3.5 py-1.5 rounded-lg bg-gold-accent/10 border border-gold-accent/20 text-xs font-semibold text-zinc-100"
                   >
                     {outlet}
                   </span>
@@ -195,20 +195,20 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onOpenProposal }) => {
 
             {/* Testimonial Quote */}
             {selectedCase.quote && (
-              <div className="p-6 rounded-2xl bg-gradient-to-r from-gold-accent/15 to-transparent border-l-4 border-gold-accent space-y-2">
+              <div className="p-6 rounded-2xl bg-gradient-to-r from-gold-accent/10 to-transparent border-l-4 border-gold-accent space-y-2">
                 <Quote className="w-6 h-6 text-gold-accent" />
-                <p className="text-zinc-100 italic text-sm sm:text-base font-medium">
+                <p className="text-zinc-200 italic text-sm sm:text-base">
                   "{selectedCase.quote.text}"
                 </p>
-                <div className="text-xs text-gold-accent font-bold pt-1">
+                <div className="text-xs text-gold-accent font-semibold pt-1">
                   — {selectedCase.quote.author}, {selectedCase.quote.title}
                 </div>
               </div>
             )}
 
             {/* Modal CTA */}
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-white/15">
-              <span className="text-xs text-zinc-300 font-medium">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-white/10">
+              <span className="text-xs text-zinc-400">
                 Ready to secure comparable tier-1 results for your company?
               </span>
               <button
@@ -216,9 +216,10 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onOpenProposal }) => {
                   closeModal();
                   onOpenProposal();
                 }}
-                className="btn-gold-solid w-full sm:w-auto px-8 py-3.5 rounded-full text-xs uppercase tracking-wider cursor-pointer"
+                className="btn-primary px-6 py-3 text-xs uppercase tracking-wider"
               >
-                Request Custom Strategy Proposal
+                <span>Request Strategy Proposal</span>
+                <ArrowUpRight className="w-3.5 h-3.5 ml-1.5" />
               </button>
             </div>
 

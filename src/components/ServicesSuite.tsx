@@ -23,14 +23,14 @@ export const ServicesSuite: React.FC<ServicesSuiteProps> = ({ onOpenProposal }) 
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gold-accent/15 border border-gold-accent/30 text-gold-accent text-xs font-mono uppercase tracking-widest mb-4 font-bold">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gold-accent/10 border border-gold-accent/20 text-gold-accent text-xs font-mono uppercase tracking-widest mb-4">
             <Sparkles className="w-3.5 h-3.5" />
             Full-Spectrum Boutique Capabilities
           </div>
           <h2 className="font-serif text-3xl sm:text-5xl font-normal text-white tracking-tight mb-4">
             Services Designed for Exponential Authority
           </h2>
-          <p className="text-zinc-300 text-base sm:text-lg">
+          <p className="text-zinc-400 text-base sm:text-lg">
             From funding unveilings to global thought leadership and crisis defense, we provide high-velocity PR that moves markets.
           </p>
         </div>
@@ -43,14 +43,15 @@ export const ServicesSuite: React.FC<ServicesSuiteProps> = ({ onOpenProposal }) 
               <div
                 key={s.id}
                 onMouseEnter={() => soundFx.playHover()}
-                className="group glass-card rounded-3xl p-8 border border-white/15 hover:border-gold-accent/50 transition-all duration-500 flex flex-col justify-between"
+                className="group glass-card rounded-3xl p-8 border border-white/10 hover:border-gold-accent/40 transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
-                    <div className="w-12 h-12 rounded-2xl bg-gold-accent/15 border border-gold-accent/30 flex items-center justify-center text-gold-accent group-hover:bg-gold-accent group-hover:text-black transition-colors duration-300">
-                      <Icon className="w-6 h-6" />
+                    {/* Icon is ALWAYS bright gold and NEVER turns black on hover */}
+                    <div className="w-12 h-12 rounded-2xl bg-gold-accent/15 border border-gold-accent/30 flex items-center justify-center text-gold-accent group-hover:bg-gold-accent/25 transition-colors">
+                      <Icon className="w-6 h-6 text-gold-accent" />
                     </div>
-                    <span className="text-[10px] font-mono uppercase tracking-widest px-2.5 py-1 rounded-full bg-white/10 text-gold-accent border border-gold-accent/30 font-bold">
+                    <span className="text-[10px] font-mono uppercase tracking-widest px-2.5 py-1 rounded-full bg-white/5 text-zinc-300 border border-white/10">
                       {s.badge}
                     </span>
                   </div>
@@ -58,20 +59,20 @@ export const ServicesSuite: React.FC<ServicesSuiteProps> = ({ onOpenProposal }) 
                   <h3 className="font-display text-xl font-bold text-white group-hover:text-gold-accent transition-colors mb-1">
                     {s.title}
                   </h3>
-                  <div className="text-xs font-mono text-gold-accent uppercase tracking-wider mb-4 font-semibold">
+                  <div className="text-xs font-mono text-gold-accent/80 uppercase tracking-wider mb-4">
                     {s.subtitle}
                   </div>
-                  <p className="text-zinc-200 text-sm leading-relaxed mb-6">
+                  <p className="text-zinc-300 text-sm leading-relaxed mb-6">
                     {s.description}
                   </p>
 
                   {/* Deliverables */}
                   <div className="space-y-2 pt-6 border-t border-white/10">
-                    <div className="text-[11px] font-mono uppercase tracking-widest text-zinc-300 font-bold mb-2">
+                    <div className="text-[11px] font-mono uppercase tracking-widest text-zinc-400 mb-2 font-semibold">
                       Key Deliverables:
                     </div>
                     {s.deliverables.map((item, idx) => (
-                      <div key={idx} className="flex items-start gap-2 text-xs text-zinc-200">
+                      <div key={idx} className="flex items-start gap-2 text-xs text-zinc-300">
                         <CheckCircle2 className="w-3.5 h-3.5 text-gold-accent shrink-0 mt-0.5" />
                         <span>{item}</span>
                       </div>
@@ -79,17 +80,17 @@ export const ServicesSuite: React.FC<ServicesSuiteProps> = ({ onOpenProposal }) 
                   </div>
                 </div>
 
-                {/* INQUIRE BUTTON - ALWAYS CLEAR & PROMINENT */}
+                {/* Refined Card Action Button */}
                 <div className="pt-8">
                   <button
                     onClick={() => {
                       soundFx.playSuccess();
                       onOpenProposal();
                     }}
-                    className="btn-gold-outline w-full py-3 rounded-xl text-xs uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer"
+                    className="btn-card-action w-full py-2.5 text-xs uppercase tracking-wider"
                   >
                     <span>Inquire About {s.title.split(' ')[0]}</span>
-                    <ArrowRight className="w-4 h-4 stroke-[2.5]" />
+                    <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
                   </button>
                 </div>
               </div>

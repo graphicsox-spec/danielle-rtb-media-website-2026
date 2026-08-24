@@ -15,19 +15,19 @@ export const Footer: React.FC<FooterProps> = ({ onOpenProposal, onSelectCategory
   };
 
   return (
-    <footer className="bg-[#050507] text-zinc-300 text-xs border-t border-white/15 pt-20 pb-12 relative overflow-hidden">
+    <footer className="bg-[#050507] text-zinc-400 text-xs border-t border-white/10 pt-20 pb-12 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Top Pitch Banner with PROMINENT SOLID BUTTON */}
-        <div className="glass-card-gold rounded-3xl p-8 sm:p-12 mb-16 border border-gold-accent/40 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8">
+        {/* Top Pitch Banner */}
+        <div className="glass-card-gold rounded-3xl p-8 sm:p-12 mb-16 border border-gold-accent/30 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8">
           <div>
-            <span className="text-[11px] font-mono uppercase tracking-widest text-gold-accent font-bold">
+            <span className="text-[11px] font-mono uppercase tracking-widest text-gold-accent font-semibold">
               Ready To Command Global Attention?
             </span>
             <h3 className="font-serif text-3xl sm:text-4xl font-normal text-white mt-1">
               Let's Raise The Bar For Your Brand.
             </h3>
-            <p className="text-zinc-200 text-sm max-w-xl mt-2 font-normal">
+            <p className="text-zinc-300 text-sm max-w-xl mt-2">
               Join 45+ visionary tech startups, sustainability leaders, artists, and elite athletes who rely on RTB Media.
             </p>
           </div>
@@ -37,39 +37,39 @@ export const Footer: React.FC<FooterProps> = ({ onOpenProposal, onSelectCategory
               soundFx.playSuccess();
               onOpenProposal();
             }}
-            className="btn-gold-solid px-9 py-4 rounded-full text-xs uppercase tracking-wider shrink-0 flex items-center gap-2 cursor-pointer"
+            className="btn-primary px-8 py-3.5 text-xs uppercase tracking-wider shrink-0"
           >
             <span>Request Agency Proposal</span>
-            <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
+            <ArrowUpRight className="w-4 h-4 ml-2" />
           </button>
         </div>
 
         {/* Footer Nav Columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-16 border-b border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-16 border-b border-white/5">
           
           {/* Col 1: Brand & Office */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-gold-accent/20 border-2 border-gold-accent flex items-center justify-center font-display font-extrabold text-gold-accent text-sm">
+              <div className="w-8 h-8 rounded-lg bg-gold-accent/20 border border-gold-accent flex items-center justify-center font-display font-extrabold text-gold-accent text-sm">
                 RTB
               </div>
               <span className="font-display font-bold text-white text-base tracking-tight">
                 RAISE THE BAR MEDIA
               </span>
             </div>
-            <p className="text-zinc-300 text-xs leading-relaxed max-w-sm">
+            <p className="text-zinc-400 text-xs leading-relaxed max-w-sm">
               Boutique PR & Marketing Agency headquartered in Hollywood, Los Angeles. Representing transformative founders, climate leaders, artists, and athletes.
             </p>
-            <div className="space-y-2 pt-2 text-xs font-medium">
-              <div className="flex items-center gap-2 text-zinc-200">
+            <div className="space-y-1.5 pt-2 text-xs">
+              <div className="flex items-center gap-2 text-zinc-300">
                 <MapPin className="w-3.5 h-3.5 text-gold-accent shrink-0" />
                 <span>{AGENCY_INFO.address.street}, Hollywood, {AGENCY_INFO.address.city}, {AGENCY_INFO.address.state} {AGENCY_INFO.address.zip}</span>
               </div>
-              <div className="flex items-center gap-2 text-zinc-200">
+              <div className="flex items-center gap-2 text-zinc-300">
                 <Phone className="w-3.5 h-3.5 text-gold-accent shrink-0" />
                 <a href={`tel:${AGENCY_INFO.phone}`} className="hover:text-gold-accent transition-colors font-mono">{AGENCY_INFO.phone}</a>
               </div>
-              <div className="flex items-center gap-2 text-zinc-200">
+              <div className="flex items-center gap-2 text-zinc-300">
                 <Mail className="w-3.5 h-3.5 text-gold-accent shrink-0" />
                 <a href={`mailto:${AGENCY_INFO.email}`} className="hover:text-gold-accent transition-colors font-mono">{AGENCY_INFO.email}</a>
               </div>
@@ -78,10 +78,10 @@ export const Footer: React.FC<FooterProps> = ({ onOpenProposal, onSelectCategory
 
           {/* Col 2: Verticals */}
           <div className="space-y-3">
-            <div className="text-xs uppercase font-mono tracking-widest text-white font-bold">
+            <div className="text-xs uppercase font-mono tracking-widest text-white font-semibold">
               Specializations
             </div>
-            <ul className="space-y-2.5">
+            <ul className="space-y-2">
               {VERTICALS.map((v) => (
                 <li key={v.id}>
                   <button
@@ -101,10 +101,10 @@ export const Footer: React.FC<FooterProps> = ({ onOpenProposal, onSelectCategory
 
           {/* Col 3: Services */}
           <div className="space-y-3">
-            <div className="text-xs uppercase font-mono tracking-widest text-white font-bold">
+            <div className="text-xs uppercase font-mono tracking-widest text-white font-semibold">
               Boutique Services
             </div>
-            <ul className="space-y-2.5">
+            <ul className="space-y-2">
               <li><a href="#services" className="hover:text-gold-accent transition-colors">PR Strategy & Narrative</a></li>
               <li><a href="#services" className="hover:text-gold-accent transition-colors">Media Relations & Pitching</a></li>
               <li><a href="#services" className="hover:text-gold-accent transition-colors">Executive Thought Leadership</a></li>
@@ -116,12 +116,12 @@ export const Footer: React.FC<FooterProps> = ({ onOpenProposal, onSelectCategory
 
           {/* Col 4: Outlets & Authority */}
           <div className="space-y-3">
-            <div className="text-xs uppercase font-mono tracking-widest text-white font-bold">
+            <div className="text-xs uppercase font-mono tracking-widest text-white font-semibold">
               Top Placements
             </div>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-1.5">
               {['TechCrunch', 'Forbes', 'WSJ', 'Bloomberg', 'Wired', 'CNN', 'NYT', 'Fast Company'].map((out) => (
-                <span key={out} className="px-2.5 py-1 rounded-md bg-white/10 text-[11px] text-zinc-100 border border-white/15 font-medium">
+                <span key={out} className="px-2 py-1 rounded bg-white/5 text-[10px] text-zinc-300 border border-white/5">
                   {out}
                 </span>
               ))}
@@ -131,16 +131,16 @@ export const Footer: React.FC<FooterProps> = ({ onOpenProposal, onSelectCategory
         </div>
 
         {/* Bottom Credits & Copyright */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-zinc-400">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-zinc-500">
           <div>
             © {new Date().getFullYear()} Raise The Bar Media (RTB Media). All Rights Reserved. 7083 Hollywood Blvd, Los Angeles, CA.
           </div>
           <button
             onClick={scrollToTop}
-            className="hover:text-gold-accent transition-colors flex items-center gap-1 font-mono uppercase tracking-widest font-bold cursor-pointer"
+            className="hover:text-gold-accent transition-colors flex items-center gap-1 font-mono uppercase tracking-widest cursor-pointer"
           >
             <span>Back to Top</span>
-            <ArrowUpRight className="w-3.5 h-3.5 -rotate-45 stroke-[2.5]" />
+            <ArrowUpRight className="w-3.5 h-3.5 -rotate-45" />
           </button>
         </div>
 

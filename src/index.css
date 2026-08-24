@@ -8,7 +8,7 @@
   }
 }
 
-/* Global Selection styling - High contrast black on bright gold */
+/* Global Selection styling */
 ::selection {
   background-color: #F3D97A !important;
   color: #07070A !important;
@@ -16,72 +16,95 @@
 
 /* Custom Luxury Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
 }
 ::-webkit-scrollbar-track {
   background: #07070A;
 }
 ::-webkit-scrollbar-thumb {
-  background: #2D2D3F;
+  background: #252535;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #E5C07B;
+  background: #F3D97A;
 }
 
-/* Glassmorphism & Luxury Cards */
+/* Refined Glassmorphism Cards */
 .glass-card {
-  background: rgba(16, 16, 24, 0.85);
+  background: rgba(15, 15, 23, 0.75);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .glass-card-gold {
-  background: rgba(20, 19, 28, 0.9);
+  background: rgba(18, 18, 26, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(243, 217, 122, 0.35);
-  box-shadow: 0 10px 30px -10px rgba(243, 217, 122, 0.15);
+  border: 1px solid rgba(243, 217, 122, 0.25);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
 }
 
-/* SOLID PROMINENT GOLD LUXURY BUTTONS */
-.btn-gold-solid {
-  background-color: #F3D97A !important;
-  background-image: linear-gradient(135deg, #FFF0B3 0%, #F3D97A 50%, #D4AF37 100%) !important;
-  color: #09090D !important;
-  font-weight: 800 !important;
-  border: 2px solid #FFF5C0 !important;
-  box-shadow: 0 4px 20px rgba(243, 217, 122, 0.35), 0 0 0 1px rgba(0,0,0,0.5) !important;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+/* CONSISTENT SOPHISTICATED LUXURY BUTTONS */
+.btn-primary {
+  background: linear-gradient(135deg, #FBE8A6 0%, #F3D97A 60%, #E5C05D 100%);
+  color: #0B0B10;
+  font-weight: 700;
+  border: none;
+  border-radius: 9999px;
+  box-shadow: 0 4px 15px rgba(243, 217, 122, 0.25);
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
-.btn-gold-solid:hover {
-  background-color: #FFE680 !important;
-  background-image: linear-gradient(135deg, #FFFFFF 0%, #FFE680 50%, #E6BF3A 100%) !important;
-  transform: translateY(-2px) scale(1.02) !important;
-  box-shadow: 0 8px 30px rgba(243, 217, 122, 0.55), 0 0 15px rgba(243, 217, 122, 0.3) !important;
-  color: #000000 !important;
+.btn-primary:hover {
+  background: linear-gradient(135deg, #FFF0B8 0%, #F8E290 60%, #ECCB6E 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(243, 217, 122, 0.4);
+  color: #000000;
 }
 
-/* OUTLINE GOLD BUTTON WITH CLEAR PROMINENCE */
-.btn-gold-outline {
-  background-color: rgba(243, 217, 122, 0.1) !important;
-  color: #F3D97A !important;
-  font-weight: 700 !important;
-  border: 1.5px solid #F3D97A !important;
-  box-shadow: 0 2px 10px rgba(243, 217, 122, 0.15) !important;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.04);
+  color: #F4F4F8;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
-.btn-gold-outline:hover {
-  background-color: #F3D97A !important;
-  color: #09090D !important;
-  border-color: #FFF0B3 !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 6px 20px rgba(243, 217, 122, 0.4) !important;
+.btn-secondary:hover {
+  background: rgba(243, 217, 122, 0.08);
+  border-color: rgba(243, 217, 122, 0.4);
+  color: #F3D97A;
+  transform: translateY(-2px);
 }
-.btn-gold-outline:hover * {
-  color: #09090D !important;
-  stroke: #09090D !important;
+
+.btn-card-action {
+  background: rgba(243, 217, 122, 0.08);
+  color: #F3D97A;
+  font-weight: 600;
+  border: 1px solid rgba(243, 217, 122, 0.3);
+  border-radius: 12px;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.btn-card-action:hover {
+  background: #F3D97A;
+  color: #0B0B10;
+  border-color: #F3D97A;
+  transform: translateY(-1px);
+}
+.btn-card-action:hover * {
+  color: #0B0B10 !important;
 }
 
 .text-gradient-gold {
