@@ -57,38 +57,45 @@ export const VIPProposalModal: React.FC<VIPProposalModalProps> = ({ isOpen, onCl
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-xl animate-in fade-in duration-200">
-      <div className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto glass-card-gold rounded-3xl p-6 sm:p-10 border border-gold-accent/40 shadow-2xl space-y-6">
+    <div
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-xl animate-in fade-in duration-200"
+    >
+      {/* Outer Rounded Container with OVERFLOW HIDDEN */}
+      <div className="relative w-full max-w-2xl max-h-[90vh] glass-card-gold rounded-3xl border border-gold-accent/40 shadow-2xl overflow-hidden flex flex-col">
         
-        {/* Close Button */}
-        <button
-          onClick={() => {
-            soundFx.playClick();
-            onClose();
-          }}
-          className="absolute top-6 right-6 p-2 rounded-full bg-white/10 text-zinc-300 hover:text-white hover:bg-white/20 transition-colors cursor-pointer"
-        >
-          <X className="w-5 h-5" />
-        </button>
+        {/* Header with Close Button */}
+        <div className="flex items-center justify-between p-6 sm:px-10 border-b border-white/10 bg-[#12121A]/95 shrink-0 z-10">
+          <div>
+            <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-gold-accent/20 text-gold-accent text-[11px] font-mono uppercase tracking-widest font-semibold">
+              <Sparkles className="w-3 h-3" />
+              VIP Campaign Proposal Request
+            </div>
+            <h3 className="font-serif text-xl sm:text-2xl font-normal text-white mt-1">
+              Let's Raise The Bar Together
+            </h3>
+          </div>
 
-        {!submitted ? (
-          <>
-            {/* Modal Header */}
-            <div>
-              <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-gold-accent/20 text-gold-accent text-[11px] font-mono uppercase tracking-widest mb-2 font-semibold">
-                <Sparkles className="w-3 h-3" />
-                VIP Campaign Proposal Request
-              </div>
-              <h3 className="font-serif text-2xl sm:text-3xl font-normal text-white">
-                Let's Raise The Bar Together
-              </h3>
-              <p className="text-zinc-400 text-xs sm:text-sm mt-1">
+          <button
+            onClick={() => {
+              soundFx.playClick();
+              onClose();
+            }}
+            className="p-2 rounded-full bg-white/10 text-zinc-300 hover:text-white hover:bg-white/20 transition-colors cursor-pointer"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
+
+        {/* Inner Scrollable Body */}
+        <div className="p-6 sm:p-10 overflow-y-auto space-y-6 flex-1">
+          {!submitted ? (
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <p className="text-zinc-400 text-xs sm:text-sm">
                 Tell us about your brand, stage, and goals. Our senior partners will prepare a tailored 12-month PR roadmap within 48 hours.
               </p>
-            </div>
-
-            {/* Form */}
-            <form onSubmit={handleSubmit} className="space-y-5">
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
@@ -228,29 +235,29 @@ export const VIPProposalModal: React.FC<VIPProposalModalProps> = ({ isOpen, onCl
               </button>
 
             </form>
-          </>
-        ) : (
-          <div className="py-12 text-center space-y-6">
-            <div className="w-16 h-16 rounded-full bg-gold-accent/20 border border-gold-accent mx-auto flex items-center justify-center text-gold-accent">
-              <Check className="w-8 h-8 stroke-[3]" />
+          ) : (
+            <div className="py-12 text-center space-y-6">
+              <div className="w-16 h-16 rounded-full bg-gold-accent/20 border border-gold-accent mx-auto flex items-center justify-center text-gold-accent">
+                <Check className="w-8 h-8 stroke-[3]" />
+              </div>
+              <h3 className="font-serif text-3xl font-normal text-white">
+                Proposal Request Received
+              </h3>
+              <p className="text-zinc-300 text-sm max-w-md mx-auto leading-relaxed">
+                Thank you, <span className="text-white font-bold">{formData.name}</span>. Our partners at 7083 Hollywood Blvd are reviewing your details and will deliver your custom media roadmap to <span className="text-gold-accent font-semibold">{formData.email}</span> within 48 hours.
+              </p>
+              <button
+                onClick={() => {
+                  soundFx.playClick();
+                  onClose();
+                }}
+                className="btn-primary px-8 py-3 text-xs uppercase tracking-wider"
+              >
+                Back to Site
+              </button>
             </div>
-            <h3 className="font-serif text-3xl font-normal text-white">
-              Proposal Request Received
-            </h3>
-            <p className="text-zinc-300 text-sm max-w-md mx-auto leading-relaxed">
-              Thank you, <span className="text-white font-bold">{formData.name}</span>. Our partners at 7083 Hollywood Blvd are reviewing your details and will deliver your custom media roadmap to <span className="text-gold-accent font-semibold">{formData.email}</span> within 48 hours.
-            </p>
-            <button
-              onClick={() => {
-                soundFx.playClick();
-                onClose();
-              }}
-              className="btn-primary px-8 py-3 text-xs uppercase tracking-wider"
-            >
-              Back to Site
-            </button>
-          </div>
-        )}
+          )}
+        </div>
 
       </div>
     </div>
