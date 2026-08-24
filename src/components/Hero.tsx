@@ -11,6 +11,20 @@ interface HeroProps {
 export const Hero: React.FC<HeroProps> = ({ onOpenProposal, onOpenVideo }) => {
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center pt-32 pb-16 overflow-hidden bg-[#07070A]">
+      {/* Background Cinematic Video Loop with subtle opacity */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <video
+          src="https://rtb-media.com/wp-content/uploads/2021/08/Video-Home-page.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover opacity-25 filter contrast-125 brightness-90 scale-105"
+        />
+        {/* Soft Vignette and Gradient overlay for perfect typography contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#07070A]/85 via-[#07070A]/60 to-[#07070A]"></div>
+      </div>
+
       {/* Background ambient lighting */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[450px] bg-gradient-to-tr from-amber-500/15 via-gold-accent/10 to-sky-500/10 rounded-full blur-[130px] pointer-events-none"></div>
 
