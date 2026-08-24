@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { MapPin, Phone, Mail, Clock, ArrowUpRight, Globe, Sparkles } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, ArrowUpRight, Navigation, Sparkles, Image as ImageIcon, Map as MapIcon, ShieldCheck } from 'lucide-react';
 import { AGENCY_INFO } from '../data/rtbData';
 import { soundFx } from '../utils/audio';
 
-export const HollywoodHQ: React.FC = () => {
+interface HollywoodHQProps {
+  onOpenProposal?: () => void;
+}
+
+export const HollywoodHQ: React.FC<HollywoodHQProps> = ({ onOpenProposal }) => {
   const [laTime, setLaTime] = useState<string>('');
+  const [viewMode, setViewMode] = useState<'map' | 'photo'>('map');
 
   useEffect(() => {
     const updateTime = () => {
@@ -23,8 +28,10 @@ export const HollywoodHQ: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=7083+Hollywood+Boulevard+Hollywood+Los+Angeles+CA+90028";
+
   return (
-    <section id="contact" className="py-24 bg-[#07070A] relative border-t border-white/5">
+    <section id="contact" className="py-24 bg-[#07070A] relative border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -32,24 +39,24 @@ export const HollywoodHQ: React.FC = () => {
           {/* Left: Contact Info & Hollywood Narrative */}
           <div className="lg:col-span-6 space-y-8">
             <div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gold-accent/10 border border-gold-accent/20 text-gold-accent text-xs font-mono uppercase tracking-widest mb-4">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gold-accent/10 border border-gold-accent/20 text-gold-accent text-xs font-mono uppercase tracking-widest mb-4 font-semibold">
                 <Sparkles className="w-3.5 h-3.5" />
-                Headquarters
+                Physical Headquarters
               </div>
               <h2 className="font-serif text-3xl sm:text-5xl font-normal text-white tracking-tight leading-tight">
                 7083 Hollywood Boulevard, Los Angeles
               </h2>
               <p className="text-zinc-300 text-sm sm:text-base mt-4 leading-relaxed">
-                Located at the historic crossroads of entertainment, technology, and culture in Hollywood, California. We bring West Coast creativity together with global media firepower.
+                Located in the heart of Hollywood, California. We bridge West Coast entertainment & culture with high-growth technology and global media power.
               </p>
             </div>
 
             {/* Live Clock */}
             <div className="glass-card rounded-2xl p-4 sm:p-5 border border-white/10 flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <Clock className="w-5 h-5 text-gold-accent animate-spin-slow" />
+                <Clock className="w-5 h-5 text-gold-accent" />
                 <div>
-                  <div className="text-[10px] font-mono uppercase tracking-widest text-zinc-400">
+                  <div className="text-[10px] font-mono uppercase tracking-widest text-zinc-400 font-semibold">
                     Current Los Angeles Local Time (PST)
                   </div>
                   <div className="font-mono text-xl sm:text-2xl font-bold text-white">
@@ -57,8 +64,8 @@ export const HollywoodHQ: React.FC = () => {
                   </div>
                 </div>
               </div>
-              <div className="px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-xs font-mono">
-                Office Open
+              <div className="px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-bold">
+                HQ Open
               </div>
             </div>
 
@@ -75,7 +82,7 @@ export const HollywoodHQ: React.FC = () => {
                   </div>
                   <div>
                     <div className="text-xs text-zinc-400">Direct Telephone</div>
-                    <div className="font-mono text-sm sm:text-base font-bold text-white group-hover:text-gold-accent">
+                    <div className="font-mono text-sm sm:text-base font-bold text-white group-hover:text-gold-accent transition-colors">
                       {AGENCY_INFO.phone}
                     </div>
                   </div>
@@ -94,7 +101,7 @@ export const HollywoodHQ: React.FC = () => {
                   </div>
                   <div>
                     <div className="text-xs text-zinc-400">Inquiry Email</div>
-                    <div className="font-mono text-sm sm:text-base font-bold text-white group-hover:text-gold-accent">
+                    <div className="font-mono text-sm sm:text-base font-bold text-white group-hover:text-gold-accent transition-colors">
                       {AGENCY_INFO.email}
                     </div>
                   </div>
@@ -105,42 +112,126 @@ export const HollywoodHQ: React.FC = () => {
 
           </div>
 
-          {/* Right: Map Visual Card */}
+          {/* Right: Interactive Map / Photo Switcher Hub */}
           <div className="lg:col-span-6">
-            <div className="glass-card-gold rounded-3xl p-8 border border-gold-accent/30 shadow-2xl relative overflow-hidden space-y-6">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-mono uppercase tracking-widest text-gold-accent font-bold">
-                  Hollywood Office Hub
-                </span>
-                <span className="text-xs font-mono text-zinc-400">
-                  34.1016° N, 118.3444° W
-                </span>
-              </div>
-
-              {/* Map Illustration Frame */}
-              <div className="h-64 rounded-2xl bg-zinc-950 border border-white/10 relative overflow-hidden flex items-center justify-center">
-                {/* Simulated Stylized Dark Map Grid */}
-                <div className="absolute inset-0 bg-[radial-gradient(#f3d97a15_1px,transparent_1px)] [background-size:16px_16px]"></div>
-                
-                {/* Hollywood Blvd Graphic */}
-                <div className="absolute w-full h-1 bg-gold-accent/30 top-1/2 -translate-y-1/2"></div>
-                <div className="absolute h-full w-1 bg-white/10 left-1/3"></div>
-                <div className="absolute h-full w-1 bg-white/10 right-1/3"></div>
-
-                {/* Animated Pin */}
-                <div className="relative z-10 flex flex-col items-center">
-                  <div className="w-12 h-12 rounded-full bg-gold-accent/20 border-2 border-gold-accent flex items-center justify-center animate-bounce shadow-xl shadow-gold-accent/40">
-                    <MapPin className="w-6 h-6 text-gold-accent fill-gold-accent/20" />
+            <div className="glass-card-gold rounded-3xl p-6 sm:p-8 border border-gold-accent/30 shadow-2xl space-y-6">
+              
+              {/* Header with Switcher Tabs */}
+              <div className="flex items-center justify-between flex-wrap gap-3 border-b border-white/10 pb-4">
+                <div>
+                  <span className="text-xs font-mono uppercase tracking-widest text-gold-accent font-bold">
+                    Hollywood Office Hub
+                  </span>
+                  <div className="text-[11px] font-mono text-zinc-400">
+                    34.1016° N, 118.3444° W
                   </div>
-                  <div className="mt-2 px-3 py-1 rounded-full bg-black/80 backdrop-blur-md text-[11px] font-mono font-bold text-white border border-gold-accent/40">
-                    7083 Hollywood Blvd
-                  </div>
+                </div>
+
+                {/* View Switcher Toggle */}
+                <div className="flex items-center gap-1 bg-[#101018] p-1 rounded-xl border border-white/10">
+                  <button
+                    onClick={() => {
+                      soundFx.playClick();
+                      setViewMode('map');
+                    }}
+                    className={`px-3 py-1 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
+                      viewMode === 'map'
+                        ? 'bg-gold-accent text-black font-bold shadow-sm'
+                        : 'text-zinc-400 hover:text-white'
+                    }`}
+                  >
+                    <MapIcon className="w-3.5 h-3.5" />
+                    <span>Live Map</span>
+                  </button>
+
+                  <button
+                    onClick={() => {
+                      soundFx.playClick();
+                      setViewMode('photo');
+                    }}
+                    className={`px-3 py-1 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
+                      viewMode === 'photo'
+                        ? 'bg-gold-accent text-black font-bold shadow-sm'
+                        : 'text-zinc-400 hover:text-white'
+                    }`}
+                  >
+                    <ImageIcon className="w-3.5 h-3.5" />
+                    <span>Hollywood View</span>
+                  </button>
                 </div>
               </div>
 
-              <div className="text-xs text-zinc-400 leading-relaxed">
-                Visiting our Hollywood office? Private briefings and discovery sessions are available by appointment only for prospective clients and media representatives.
+              {/* Display Frame */}
+              <div className="h-72 rounded-2xl bg-zinc-950 border border-white/10 relative overflow-hidden">
+                {viewMode === 'map' ? (
+                  /* Real Embedded Google Map */
+                  <iframe
+                    title="RTB Media Hollywood Headquarters"
+                    src="https://maps.google.com/maps?q=7083+Hollywood+Boulevard,+Los+Angeles,+CA+90028&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                    className="w-full h-full border-0 filter grayscale invert contrast-125 opacity-90 hover:opacity-100 transition-opacity"
+                    loading="lazy"
+                    allowFullScreen
+                  ></iframe>
+                ) : (
+                  /* High-Res Hollywood Visual */
+                  <div className="relative w-full h-full">
+                    <img
+                      src="https://images.unsplash.com/photo-1580655653885-65763b2597d0?auto=format&fit=crop&w=1000&q=80"
+                      alt="Hollywood Boulevard Los Angeles"
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
+                    <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                      <div className="flex items-center gap-2 bg-black/80 backdrop-blur-md px-3 py-1.5 rounded-xl border border-gold-accent/30">
+                        <MapPin className="w-4 h-4 text-gold-accent" />
+                        <span className="text-xs font-mono text-white font-bold">7083 Hollywood Blvd, Suite 400</span>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
+
+              {/* Action Buttons & Amenities */}
+              <div className="space-y-4 pt-1">
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <a
+                    href={googleMapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => soundFx.playClick()}
+                    className="btn-primary flex-1 py-3 text-xs uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer"
+                  >
+                    <Navigation className="w-3.5 h-3.5" />
+                    <span>Get Directions (Google Maps)</span>
+                  </a>
+
+                  {onOpenProposal && (
+                    <button
+                      onClick={() => {
+                        soundFx.playSuccess();
+                        onOpenProposal();
+                      }}
+                      className="btn-secondary px-5 py-3 text-xs tracking-wide flex items-center justify-center gap-2 cursor-pointer"
+                    >
+                      <Sparkles className="w-3.5 h-3.5 text-gold-accent" />
+                      <span>Book In-Person Briefing</span>
+                    </button>
+                  )}
+                </div>
+
+                {/* VIP Amenities Badges */}
+                <div className="flex flex-wrap items-center justify-between gap-2 pt-2 text-[11px] text-zinc-400 border-t border-white/5 font-medium">
+                  <span className="flex items-center gap-1.5">
+                    <ShieldCheck className="w-3.5 h-3.5 text-gold-accent" />
+                    By Appointment Only
+                  </span>
+                  <span>•</span>
+                  <span>Private Media Suites</span>
+                  <span>•</span>
+                  <span>Valet Parking Available</span>
+                </div>
+              </div>
+
             </div>
           </div>
 

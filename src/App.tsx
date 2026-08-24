@@ -76,8 +76,8 @@ export function App() {
         {/* Testimonials */}
         <Testimonials />
 
-        {/* Hollywood HQ & Live Time */}
-        <HollywoodHQ />
+        {/* Hollywood HQ with Interactive Map & Photo Switcher */}
+        <HollywoodHQ onOpenProposal={() => handleOpenProposal()} />
       </main>
 
       {/* Footer */}
