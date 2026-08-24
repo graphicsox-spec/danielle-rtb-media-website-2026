@@ -70,26 +70,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenProposal, onOpenSearch, on
               soundFx.playClick();
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="group flex items-center gap-3 relative"
+            className="group flex flex-col relative"
             onMouseEnter={() => soundFx.playHover()}
           >
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-gold-300 via-gold-accent to-gold-metallic p-[1px] shadow-md shadow-gold-accent/20">
-              <div className="w-full h-full bg-[#0D0D12] rounded-[11px] flex items-center justify-center">
-                <span className="font-display font-extrabold text-base text-gradient-gold tracking-tighter">
-                  RTB
-                </span>
-              </div>
-            </div>
-            
-            <div className="flex flex-col">
-              <span className="font-display text-lg font-bold tracking-tight text-white group-hover:text-gold-accent transition-colors">
-                RAISE THE BAR
-              </span>
-              <span className="text-[10px] uppercase tracking-[0.2em] text-zinc-400 font-medium -mt-1 flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                MEDIA • HOLLYWOOD
-              </span>
-            </div>
+            <span className="font-display text-xl sm:text-2xl font-bold tracking-tight text-white group-hover:text-gold-accent transition-colors">
+              RAISE THE BAR
+            </span>
+            <span className="text-[10px] uppercase tracking-[0.25em] text-zinc-400 font-semibold flex items-center gap-1.5 mt-0.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              MEDIA • HOLLYWOOD
+            </span>
           </a>
 
           {/* Desktop Nav Links */}

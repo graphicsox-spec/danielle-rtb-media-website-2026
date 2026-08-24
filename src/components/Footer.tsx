@@ -49,12 +49,12 @@ export const Footer: React.FC<FooterProps> = ({ onOpenProposal, onSelectCategory
           
           {/* Col 1: Brand & Office */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-gold-accent/20 border border-gold-accent flex items-center justify-center font-display font-extrabold text-gold-accent text-sm">
-                RTB
-              </div>
-              <span className="font-display font-bold text-white text-base tracking-tight">
-                RAISE THE BAR MEDIA
+            <div className="flex flex-col">
+              <span className="font-display font-bold text-white text-lg sm:text-xl tracking-tight">
+                RAISE THE BAR
+              </span>
+              <span className="text-[10px] uppercase tracking-[0.25em] text-zinc-400 font-semibold mt-0.5">
+                MEDIA • HOLLYWOOD
               </span>
             </div>
             <p className="text-zinc-400 text-xs leading-relaxed max-w-sm">
