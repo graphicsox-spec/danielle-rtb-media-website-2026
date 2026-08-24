@@ -11,9 +11,7 @@ export default defineConfig({
     tailwindcss()
   ],
   build: {
-    sourcemap: false,
-    minify: 'esbuild',
-    cssMinify: true
+    sourcemap: false
   },
   server: {
     port: 3000,
